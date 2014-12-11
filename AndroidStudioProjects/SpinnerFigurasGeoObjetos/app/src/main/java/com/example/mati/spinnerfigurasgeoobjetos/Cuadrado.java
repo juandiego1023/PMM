@@ -1,40 +1,44 @@
 package com.example.mati.spinnerfigurasgeoobjetos;
 
 
+import android.os.Parcel;
 
-/**
- * Created by mati on 4/12/14.
- */
-public class Cuadrado extends Rectangulo
-{
-    public Cuadrado()
-    {   super();
+public class Cuadrado extends Rectangulo {
+    private int lado;
+    private int altura;
+
+    public Cuadrado(int lado, int altura) {
+        super(lado, altura);
         tipo = "cuadrado";
     }
 
-    public Cuadrado(double lado) {
+    public static final Creator<Cuadrado> CREATOR = new Creator<Cuadrado>() {
+        public Cuadrado createFromParcel(Parcel in) {
+            return new Cuadrado(in);
+        }
 
-        super(lado,lado);
-        tipo = "cuadrado";
+        public Cuadrado[] newArray(int size) {
+            return new Cuadrado[size];
+        }
+    };
+
+    public int describeContents() {
+        return 0;
     }
 
-    public double getLado() {
-        return base;
+    public void writeToParcel(Parcel out, int flags) {
+        super.writeToParcel(out, flags);
+        out.writeInt(lado);
+        out.writeInt(altura);
+
     }
 
-    public void setLado(double lado) {
-        base = altura = lado;
+    private Cuadrado(Parcel in) {
+        super(in);
+        lado = in.readInt();
+        altura = in.readInt();
+
     }
 
-    public void setBase(double base) {
-        this.base = this.altura = base;
-    }
 
-    public void setAltura(double altura) {
-        this.base = this.altura = altura;
-    }
-
-    public String toString(){
-        return "Cuadrado de lado " + getLado();
-    }
 }

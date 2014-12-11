@@ -19,9 +19,9 @@ public class SpinnerFigurasGeoObjetos extends Activity {
 
     public Figura[] figura =
             new Figura[]{
-                    new Circulo(),
-                    new Rectangulo(),
-                    new Cuadrado()
+                    new Circulo(33.0),
+                    new Rectangulo(10,10),
+                    new Cuadrado(10,10)
 
             };
 

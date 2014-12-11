@@ -1,35 +1,41 @@
 package com.example.mati.spinnerfigurasgeoobjetos;
 
-
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by mati on 4/12/14.
  */
-public class Figura
+
+public abstract class Figura implements Parcelable
 {
+    public String tipo;
 
-    protected String tipo;
-
-    public Figura() {
-        tipo = "indefinido";
+    protected Figura(String tipo){
+        this.tipo=tipo;
     }
 
-    public Figura(String tipo) {
+    @Override
+    public void writeToParcel(Parcel parcel, int flags)
+    {
+        parcel.writeString(tipo);
+    }
 
-        this.tipo = tipo;
+    protected Figura(Parcel in) {
+        this.tipo = in.readString();
     }
 
     public String getTipo() {
-        return tipo;
+        return this.tipo;
     }
 
 
 
-
-
-    public String toString(){
-        return "Figura de tipo: " + tipo ;
-    }
 
 
 }
+
+
+
+
+

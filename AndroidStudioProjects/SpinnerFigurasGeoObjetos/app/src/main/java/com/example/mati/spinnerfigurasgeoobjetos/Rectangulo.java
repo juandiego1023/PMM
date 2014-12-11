@@ -1,49 +1,43 @@
 package com.example.mati.spinnerfigurasgeoobjetos;
 
 
+import android.os.Parcel;
 
-/**
- * Created by mati on 4/12/14.
- */
-public class Rectangulo extends Figura
-{
-    protected double base;
-    protected double altura;
+public class Rectangulo extends Figura {
+    private int lado;
+    private int altura;
 
-    public Rectangulo() {
-        super("rectángulo");
-        base = 10.0;
-        altura = 10.0;
-    }
-
-    public Rectangulo( double base, double altura) {
-        super("rectángulo");
-        this.base = base;
+    public Rectangulo(int lado, int altura) {
+        super("rectangulo");
+        this.lado = lado;
         this.altura = altura;
     }
 
-    public double getBase() {
-        return base;
+    public static final Creator<Rectangulo> CREATOR = new Creator<Rectangulo>() {
+        public Rectangulo createFromParcel(Parcel in) {
+            return new Rectangulo(in);
+        }
+
+        public Rectangulo[] newArray(int size) {
+            return new Rectangulo[size];
+        }
+    };
+
+    public int describeContents() {
+        return 0;
     }
 
-    public double getAltura() {
-        return altura;
+    public void writeToParcel(Parcel out, int flags) {
+        super.writeToParcel(out, flags);
+        out.writeInt(lado);
+        out.writeInt(altura);
     }
 
-    public void setBase(double base) {
-        this.base = base;
+    public Rectangulo(Parcel in) {
+        super(in);
+        lado = in.readInt();
+        altura= in.readInt();
     }
 
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    public double area(){
-        return base * altura;
-    }
-
-    public String toString() {
-        return "Rectángulo de base " + base + " y altura " + altura;
-    }
 
 }
