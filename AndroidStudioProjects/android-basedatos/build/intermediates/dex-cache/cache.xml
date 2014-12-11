@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/mati/PMM/AndroidStudioProjects/android-basedatos/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-90592179a04b155aa3c010bc5f5cacff50e5673f.jar"
+        jar="/home/mati/android-sdk-linux/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156"/>
+
+</pre-dex-items>

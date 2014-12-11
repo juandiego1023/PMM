@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MenuAllThings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_guardar">Guardar</string>
+    <string name="menu_forward">Siguiente</string>
+    <string name="menu_nuevo">Nuevo</string>
+
+</resources>

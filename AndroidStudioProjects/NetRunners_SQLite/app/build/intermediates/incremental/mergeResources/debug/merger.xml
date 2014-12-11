@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res" >
+            <file
+                name="options_menu"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/menu/options_menu.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="main"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/layout/main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="row"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/layout/row.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="dialog"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/layout/dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="ic_launcher"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/values/array.xml"
+                qualifiers="" >
+                <array name="listmenu" >
+                    <item>
+Editar
+                    </item>
+                    <item>
+Borrar
+                    </item>
+                </array>
+            </file>
+            <file
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="addCliente" >Nuevo Cliente
+                </string>
+                <string name="app_name" >SQLite
+                </string>
+                <string name="hello" >Hello World, SQLiteActivity!
+                </string>
+            </file>
+            <file
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/values/styles.xml"
+                qualifiers="" >
+
+                <style name="RowText.Edad" >
+                    <item name="android:textSize">
+32dp
+                    </item>
+                    <item name="android:layout_width">
+64dp
+                    </item>
+                    <item name="android:padding">
+3dp
+                    </item>
+                    <item name="android:gravity">
+center_horizontal
+                    </item>
+                </style>
+
+                <style
+                    name="RowText"
+                    parent="@android:style/TextAppearance.Medium" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:typeface">
+monospace
+                    </item>
+                </style>
+
+                <style name="RowText.Nombre" >
+                    <item name="android:textSize">
+20dp
+                    </item>
+                </style>
+
+                <style name="RowText.Apellidos" >
+                    <item name="android:textSize">
+14dp
+                    </item>
+                </style>
+            </file>
+            <file
+                name="ic_launcher"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/drawable-ldpi/ic_launcher.png"
+                qualifiers="ldpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/res/drawable-mdpi/ic_launcher.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+        </source>
+        <source path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/build/generated/res/rs/debug" />
+        <source path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/build/generated/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/debug/res" />
+    </dataSet>
+
+</merger>

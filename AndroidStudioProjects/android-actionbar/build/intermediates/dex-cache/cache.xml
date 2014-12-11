@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/juandiegoariasmartin/Documents/PMM/AndroidStudioProjects/android-actionbar1/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-7991d4198e9d6a396b4a5aeeb40efd0c8d1d410e.jar"
+        jar="/Applications/Android Studio.app/Contents/android-sdk-mac_x86/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156"/>
+
+</pre-dex-items>
