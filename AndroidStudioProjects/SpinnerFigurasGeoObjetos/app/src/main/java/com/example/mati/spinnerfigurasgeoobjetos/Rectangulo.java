@@ -13,6 +13,12 @@ public class Rectangulo extends Figura {
         this.altura = altura;
     }
 
+    public Rectangulo() {
+        super("rectangulo");
+        this.lado = 0;
+        this.altura = 0;
+    }
+
     public static final Creator<Rectangulo> CREATOR = new Creator<Rectangulo>() {
         public Rectangulo createFromParcel(Parcel in) {
             return new Rectangulo(in);

@@ -12,6 +12,11 @@ public class Cuadrado extends Rectangulo {
         tipo = "cuadrado";
     }
 
+    public Cuadrado() {
+        super(0, 0);
+        tipo = "cuadrado";
+    }
+
     public static final Creator<Cuadrado> CREATOR = new Creator<Cuadrado>() {
         public Cuadrado createFromParcel(Parcel in) {
             return new Cuadrado(in);

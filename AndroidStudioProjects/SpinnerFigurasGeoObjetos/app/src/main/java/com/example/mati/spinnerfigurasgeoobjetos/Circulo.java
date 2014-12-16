@@ -12,6 +12,12 @@ public class Circulo extends Figura {
         this.radio = radio;
     }
 
+    public Circulo() {
+        super("circulo");
+        this.radio = 0.0;
+    }
+
+
     public static final Parcelable.Creator<Circulo> CREATOR = new Parcelable.Creator<Circulo>() {
         public Circulo createFromParcel(Parcel in) {
             return new Circulo(in);
@@ -34,6 +40,16 @@ public class Circulo extends Figura {
     private Circulo(Parcel in) {
         super(in);
         radio = in.readDouble();
+    }
+
+    public Double getRadio()
+    {
+        return radio;
+    }
+
+    public void setRadio(Double radio)
+    {
+        this.radio = radio;
     }
 
 

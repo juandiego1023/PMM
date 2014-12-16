@@ -1,6 +1,7 @@
 package com.example.mati.spinnerfigurasgeoobjetos;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,12 +17,15 @@ import android.widget.TextView;
 
 public class SpinnerFigurasGeoObjetos extends Activity {
     public Spinner miSpinner;
+    public static int COD_RESPUESTA=0;
+    public static String PARCEL_KEY="com.example.mati.spinnerFigurasgeoobjetos";
+
 
     public Figura[] figura =
             new Figura[]{
-                    new Circulo(33.0),
-                    new Rectangulo(10,10),
-                    new Cuadrado(10,10)
+                    new Circulo(),
+                    new Rectangulo(),
+                    new Cuadrado()
 
             };
 
@@ -44,7 +48,13 @@ public class SpinnerFigurasGeoObjetos extends Activity {
 
                 switch(position){
                     case 0:
-
+                        Circulo c=new Circulo();
+                        c.setRadio(33.0);
+                        Intent miIntent= new Intent(SpinnerFigurasGeoObjetos.this, PantallaDos.class);
+                        Bundle miBundle=new Bundle();
+                        miBundle.putParcelable(PARCEL_KEY, c);
+                        miIntent.putExtras(miBundle);
+                        startActivityForResult(miIntent,COD_RESPUESTA);
                         break;
                     case 1:
 
@@ -74,6 +84,8 @@ public class SpinnerFigurasGeoObjetos extends Activity {
 
 
     }
+
+
 
     class AdaptadorFigura extends ArrayAdapter<Figura> {
         public Activity miActividad;

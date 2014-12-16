@@ -9,6 +9,8 @@ import android.os.Handler;
 /**
  * Created by juandiegoariasmartin on 15/11/14.
  */
+
+//Pantalla de inicio
 public class SplashActivity extends Activity{
 
     private final int DURACION_SPLASH = 3000; // 3 segundos
