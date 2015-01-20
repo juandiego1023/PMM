@@ -2,6 +2,8 @@ package com.example.juandiegoariasmartin.calculadora10;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +15,11 @@ import android.widget.TextView;
  */
 public class PantallaDos extends Activity {
     private Button botonVolver;
+    private Button botonGrabar;
     private TextView tvResRecTitulo;
     private TextView resultadoRecibido;
+    private int resultadoRecibidoInt;
+    private ResultadosSQLiteHelper cliBDh = new ResultadosSQLiteHelper(this, "DBResultados", null, 1);
 
 
     @Override
@@ -23,6 +28,7 @@ public class PantallaDos extends Activity {
         setContentView(R.layout.activity_pantalla_dos);
 
             botonVolver= (Button)findViewById(R.id.buttonVolver);
+            botonGrabar= (Button)findViewById(R.id.buttonGrabar);
             tvResRecTitulo= (TextView)findViewById(R.id.tvResRecTitulo);
             resultadoRecibido= (TextView)findViewById(R.id.tvResultadoRecibido);
 
@@ -37,7 +43,7 @@ public class PantallaDos extends Activity {
             Bundle  miBundleRecoger = getIntent().getExtras();
             resultadoRecibido.setText(miBundleRecoger.getString("TEXTO"));
 
-            int resultadoRecibidoInt=Integer.parseInt(miBundleRecoger.getString("TEXTO"));
+           resultadoRecibidoInt=Integer.parseInt(miBundleRecoger.getString("TEXTO"));
 
             boolean siEsPositivoResultado=resultadoRecibidoInt>0;
             if(siEsPositivoResultado){
@@ -48,6 +54,30 @@ public class PantallaDos extends Activity {
                 tvResRecTitulo.setTextColor(Color.RED);
                 resultadoRecibido.setTextColor(Color.RED);
             }
+
+            botonGrabar.setOnClickListener( new View.OnClickListener(){
+                public void onClick(View v){
+
+                    //Abrimos la base de datos en modo escritura
+
+                    //Obtenemos referencia a la base de datos para poder modificarla.
+                    SQLiteDatabase bd = cliBDh.getWritableDatabase();
+
+                    //En caso de abrir de forma correcta la base de datos
+                    if (bd!=null) {
+                            int total =resultadoRecibidoInt;
+                            //Introducimos los datos en la tabla resultados
+                            bd.execSQL("INSERT INTO Resultados (total) " +
+                                    "VALUES ("+total+")");
+                    }
+                    //Cerramos la base de datos
+                    bd.close();
+
+                }
+
+        });
+
+
     }
 }
 

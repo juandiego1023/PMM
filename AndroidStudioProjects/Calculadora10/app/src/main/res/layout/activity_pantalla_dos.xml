@@ -33,4 +33,11 @@
         android:text="Volver"
         android:id="@+id/buttonVolver"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grabar en sqlite"
+        android:id="@+id/buttonGrabar"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
