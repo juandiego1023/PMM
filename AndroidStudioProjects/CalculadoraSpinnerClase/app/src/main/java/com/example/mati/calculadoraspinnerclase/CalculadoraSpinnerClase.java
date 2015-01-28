@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+
 public class CalculadoraSpinnerClase extends Activity {
     private EditText numeroUno;
     private EditText numeroDos;
@@ -85,7 +86,7 @@ public class CalculadoraSpinnerClase extends Activity {
 
                                 resultado.setText(StringRes);
 
-                                pasoPantalla(stNum1,stNum2,StringRes);
+                                pasoPantalla(stNum1,stNum2,StringRes,tipoOperando);
 
                             }
                         });
@@ -109,7 +110,7 @@ public class CalculadoraSpinnerClase extends Activity {
 
         });
     }
-    public void pasoPantalla(String stNum1,String stNum2, String StringRes){
+    public void pasoPantalla(String stNum1,String stNum2, String StringRes, String tipoOperando){
 
         Intent miIntent = new Intent(CalculadoraSpinnerClase.this, PantallaDos.class);
         Bundle miBundle = new Bundle();
@@ -117,6 +118,7 @@ public class CalculadoraSpinnerClase extends Activity {
         miBundle.putString("numeroUno", stNum1);
         miBundle.putString("numeroDos", stNum2);
         miBundle.putString("resultado", StringRes);
+        miBundle.putString("operando", tipoOperando);
 
         miIntent.putExtras(miBundle);
 

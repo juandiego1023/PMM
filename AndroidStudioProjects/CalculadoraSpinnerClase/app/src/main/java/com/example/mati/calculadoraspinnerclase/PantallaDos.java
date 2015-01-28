@@ -18,6 +18,7 @@ public class PantallaDos extends Activity {
     private TextView tvResRecTitulo;
     private TextView numeroUnoRecibido,numeroDosRecibido,resultadoRecibido;
     private int numeroUnoRecibidoInt,numeroDosRecibidoInt,resultadoRecibidoInt;
+    private String tipoOperando;
     private ResultadosSQLiteHelper cliBDh = new ResultadosSQLiteHelper(this, "DBResultados", null, 1);
 
 
@@ -32,6 +33,7 @@ public class PantallaDos extends Activity {
             numeroUnoRecibido= (TextView)findViewById(R.id.tvNumeroUnoRecibido);
             numeroDosRecibido= (TextView)findViewById(R.id.tvNumeroDosRecibido);
             resultadoRecibido= (TextView)findViewById(R.id.tvResultadoRecibido);
+
 
             botonVolver.setOnClickListener( new View.OnClickListener(){
                 public void onClick(View v){
@@ -51,6 +53,8 @@ public class PantallaDos extends Activity {
 
             resultadoRecibidoInt= Integer.parseInt(miBundleRecoger.getString("resultado"));
 
+            tipoOperando = getIntent().getStringExtra("tipoOperando");
+
 
             botonGrabar.setOnClickListener( new View.OnClickListener(){
                 public void onClick(View v){
@@ -65,9 +69,12 @@ public class PantallaDos extends Activity {
                             int num1=numeroUnoRecibidoInt;
                             int num2=numeroDosRecibidoInt;
                             int total =resultadoRecibidoInt;
-                            //Introducimos los datos en la tabla resultados
-                            bd.execSQL("INSERT INTO Resultados (num1,total) " +
-                                    "VALUES ("+num1+","+total+")");
+
+                        String sql = "INSERT INTO Resultados (num1,total) VALUES ('" + num1 + "','" + total + "') ";
+
+                        bd.execSQL(sql);
+
+
                     }
                     //Cerramos la base de datos
                     bd.close();

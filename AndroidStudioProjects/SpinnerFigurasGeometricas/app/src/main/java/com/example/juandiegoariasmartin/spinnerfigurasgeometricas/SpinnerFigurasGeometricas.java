@@ -100,6 +100,7 @@ public class SpinnerFigurasGeometricas extends Activity{
                         break;
                     case 1:
                        showToast("Entro en el case de circulo con clases: "+tipoClick);
+
                         dibujar.setVisibility(View.VISIBLE);
                         //Pongo visibles el ingreso de datos del circulo
                         visibleCirculo();
