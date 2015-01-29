@@ -8,7 +8,7 @@ import android.widget.TextView;
  * Created by juandiegoariasmartin on 29/1/15.
  */
 public class PantallaDos extends Activity {
-    private TextView zonaDestinoRecibido,continenteDestinoRecibido,precioDestinoRecibido,pesoDestinoRecibido;
+    private TextView zonaDestinoRecibido,continenteDestinoRecibido,precioDestinoRecibido,pesoDestinoRecibido,tarifaTipoDestinoRecibido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +19,13 @@ public class PantallaDos extends Activity {
         continenteDestinoRecibido= (TextView)findViewById(R.id.tvcontinenteDestinoRecibido);
         precioDestinoRecibido= (TextView)findViewById(R.id.tvprecioDestinoRecibido);
         pesoDestinoRecibido= (TextView)findViewById(R.id.tvpesoDestinoRecibido);
+        tarifaTipoDestinoRecibido=(TextView)findViewById(R.id.tvtarifaTipoDestinoRecibido);
 
         Bundle miBundleRecoger = getIntent().getExtras();
         zonaDestinoRecibido.setText(miBundleRecoger.getString("zonaDestino"));
         continenteDestinoRecibido.setText(miBundleRecoger.getString("continenteDestino"));
         precioDestinoRecibido.setText(miBundleRecoger.getString("precioDestino"));
         pesoDestinoRecibido.setText(miBundleRecoger.getString("pesoDestino"));
+        tarifaTipoDestinoRecibido.setText(miBundleRecoger.getString("tarifaTipoDestino"));
     }
 }

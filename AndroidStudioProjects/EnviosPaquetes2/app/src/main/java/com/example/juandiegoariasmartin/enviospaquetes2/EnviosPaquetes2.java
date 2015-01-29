@@ -21,12 +21,13 @@ import android.widget.Toast;
 
 public class EnviosPaquetes2 extends Activity {
     private Spinner miSpinner;
-    private String zonaDestino,continenteDestino,pesoDestino;
+    private String zonaDestino,continenteDestino,pesoDestino,tarifaTipoDestino;
     private float precioUrgente,precioDestino;
     private Button calcular;
     private EditText eTpeso;
-    private RadioButton rbUrgente;
+    private RadioButton rbUrgente,rbNormal;
     private int pesoCoste;
+
 
 
     public Destinos[] destinos =
@@ -47,6 +48,7 @@ public class EnviosPaquetes2 extends Activity {
         eTpeso= (EditText)findViewById(R.id.etPeso);
 
         rbUrgente=(RadioButton)findViewById(R.id.rBurgente);
+        rbNormal=(RadioButton)findViewById(R.id.rBnormal);
 
         AdaptadorFigura miAdaptador = new AdaptadorFigura(this);
         miSpinner.setAdapter(miAdaptador);
@@ -79,7 +81,10 @@ public class EnviosPaquetes2 extends Activity {
                     public void onClick(View v) {
                         if (rbUrgente.isChecked()==true) {
                             precioUrgente=(precioDestino*30/100);
-
+                            tarifaTipoDestino="urgente";
+                        }
+                        if (rbNormal.isChecked()==true){
+                            tarifaTipoDestino="normal";
                         }
                         pesoDestino=eTpeso.getText().toString();
                         showToast("Peso destino: "+pesoDestino);
@@ -99,7 +104,7 @@ public class EnviosPaquetes2 extends Activity {
 
                         precioDestino=precioDestino+precioUrgente+pesoCoste;
 
-                        pasoPantalla(zonaDestino,continenteDestino,precioDestino,pesoDestino);
+                        pasoPantalla(zonaDestino,continenteDestino,precioDestino,pesoDestino,tarifaTipoDestino);
 
                     }
                 });
@@ -142,7 +147,7 @@ public class EnviosPaquetes2 extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void pasoPantalla(String zonaDestino,String continenteDestino,float precioDestino, String pesoDestino){
+    public void pasoPantalla(String zonaDestino,String continenteDestino,float precioDestino, String pesoDestino, String tarifaTipoDestino){
 
         Intent miIntent = new Intent(EnviosPaquetes2.this, PantallaDos.class);
         Bundle miBundle = new Bundle();
@@ -151,6 +156,7 @@ public class EnviosPaquetes2 extends Activity {
         miBundle.putString("continenteDestino", continenteDestino);
         miBundle.putString("precioDestino", String.valueOf(precioDestino));
         miBundle.putString("pesoDestino", pesoDestino);
+        miBundle.putString("tarifaTipoDestino", tarifaTipoDestino);
 
 
         miIntent.putExtras(miBundle);
