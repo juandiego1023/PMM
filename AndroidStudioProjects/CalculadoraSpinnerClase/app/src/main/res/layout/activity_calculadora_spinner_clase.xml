@@ -59,7 +59,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,6 +89,14 @@
         android:layout_below="@+id/spinner"
         android:layout_alignParentStart="true"
         android:layout_marginTop="45dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Borrar"
+        android:id="@+id/buttonBorrar"
+        android:layout_alignTop="@+id/buttonCalcular"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

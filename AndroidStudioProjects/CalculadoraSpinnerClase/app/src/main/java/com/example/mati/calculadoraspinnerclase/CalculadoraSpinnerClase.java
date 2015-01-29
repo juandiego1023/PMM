@@ -22,7 +22,7 @@ public class CalculadoraSpinnerClase extends Activity {
 
     public Spinner miSpinner;
 
-    private Button calcular;
+    private Button calcular,borrar;
 
     public String tipoOperando;
 
@@ -47,16 +47,25 @@ public class CalculadoraSpinnerClase extends Activity {
         miSpinner.setBackgroundColor(Color.argb(127, 255, 255, 0));
 
         calcular= (Button)findViewById(R.id.buttonCalcular);
+        calcular.setBackgroundColor(Color.argb(71,71,225,0));
+
+        borrar= (Button)findViewById(R.id.buttonBorrar);
+        borrar.setBackgroundColor(Color.argb(60,225,225,0));
 
         resultado= (EditText)findViewById(R.id.eTresultado);
 
         AdaptadorFigura miAdaptador = new AdaptadorFigura(this);
         miSpinner.setAdapter(miAdaptador);
 
-        numeroUno.setText("");
-        numeroDos.setText("");
-        resultado.setText("");
+        borrar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                numeroUno.setText("");
+                numeroDos.setText("");
+                resultado.setText("");
 
+
+            }
+        });
 
         miSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -93,10 +102,30 @@ public class CalculadoraSpinnerClase extends Activity {
                         break;
 
                     case 2:
+                        calcular.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+
+                                String stNum1=numeroUno.getText().toString();
+                                int num1=Integer.parseInt(stNum1);
 
 
+                                String stNum2=numeroDos.getText().toString();
+                                int num2=Integer.parseInt(stNum2);
 
+                                int intRes=num1-num2;
+
+                                String StringRes=String.valueOf(intRes);
+
+                                resultado.setText(StringRes);
+
+                                pasoPantalla(stNum1,stNum2,StringRes,tipoOperando);
+
+                            }
+                        });
                         break;
+
+
+
 
 
 
@@ -110,6 +139,9 @@ public class CalculadoraSpinnerClase extends Activity {
 
         });
     }
+
+
+
     public void pasoPantalla(String stNum1,String stNum2, String StringRes, String tipoOperando){
 
         Intent miIntent = new Intent(CalculadoraSpinnerClase.this, PantallaDos.class);
@@ -118,7 +150,7 @@ public class CalculadoraSpinnerClase extends Activity {
         miBundle.putString("numeroUno", stNum1);
         miBundle.putString("numeroDos", stNum2);
         miBundle.putString("resultado", StringRes);
-        miBundle.putString("operando", tipoOperando);
+        miBundle.putString("tipoOperando", tipoOperando);
 
         miIntent.putExtras(miBundle);
 
@@ -152,6 +184,7 @@ public class CalculadoraSpinnerClase extends Activity {
                 holder = new ViewHolder();
 
                 holder.operando = (TextView) item.findViewById(R.id.campoTipo);
+
 
 
                 item.setTag(holder);

@@ -2,14 +2,14 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/juandiegoariasmartin/Documents/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/assets" >
+        <source path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/assets" >
             <file
                 name="database.db"
-                path="/Users/juandiegoariasmartin/Documents/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/assets/database.db" />
+                path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/main/assets/database.db" />
         </source>
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/juandiegoariasmartin/Documents/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/debug/assets" />
+        <source path="/home/mati/PMM/AndroidStudioProjects/NetRunners_SQLite/app/src/debug/assets" />
     </dataSet>
 
 </merger>

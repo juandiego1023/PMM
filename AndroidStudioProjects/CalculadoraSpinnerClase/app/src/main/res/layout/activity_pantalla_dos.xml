@@ -56,4 +56,19 @@
         android:text="Grabar en sqlite"
         android:id="@+id/buttonGrabar"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consultar"
+        android:id="@+id/buttonConsultar"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Resultado consultado"
+        android:id="@+id/txtResultado"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
