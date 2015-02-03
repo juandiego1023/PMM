@@ -78,4 +78,6 @@
         android:id="@+id/checkBoxTarjeta"
         android:layout_alignTop="@+id/checkBoxCaja"
         android:layout_toEndOf="@+id/textView" />
+
+
 </RelativeLayout>
