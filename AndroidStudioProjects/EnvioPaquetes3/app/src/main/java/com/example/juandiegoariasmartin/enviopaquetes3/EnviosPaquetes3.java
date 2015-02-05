@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 public class EnviosPaquetes3 extends Activity {
     private Spinner miSpinner;
-    private String zonaDestino,continenteDestino,pesoDestino,tarifaTipoDestino,boxCajaDestino,boxDedicatoriaDestino,fotoDestino;
+    private String zonaDestino,continenteDestino,pesoDestino,tarifaTipoDestino,boxCajaDestino,boxDedicatoriaDestino,imagenDestino;
     private float precioUrgente,precioDestino;
     private Button calcular;
     private EditText eTpeso;
@@ -60,8 +60,6 @@ public class EnviosPaquetes3 extends Activity {
         AdaptadorFigura miAdaptador = new AdaptadorFigura(this);
         miSpinner.setAdapter(miAdaptador);
 
-
-
         chkBoxCaja.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
@@ -86,8 +84,6 @@ public class EnviosPaquetes3 extends Activity {
             }
         });
 
-
-
         miSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView arg0, View arg1,final int position, long id) {
@@ -98,39 +94,9 @@ public class EnviosPaquetes3 extends Activity {
                 zonaDestino=destinos[position].getZona();
                 continenteDestino=destinos[position].getContinente();
                 precioDestino=destinos[position].getPrecio();
-                fotoDestino=String.valueOf(destinos[position].getFoto());
+                imagenDestino=String.valueOf(destinos[position].getFoto());
 
-                calcular.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        if (rbUrgente.isChecked()==true) {
-                            precioUrgente=(precioDestino*30/100);
-                            tarifaTipoDestino="urgente";
-                        }
-                        if (rbNormal.isChecked()==true){
-                            tarifaTipoDestino="normal";
-                        }
-                        pesoDestino=eTpeso.getText().toString();
-                        showToast("Peso destino: "+pesoDestino);
-
-                        pesoCoste=Integer.parseInt(pesoDestino);
-                        showToast("El peso coste antes de los if es de: "+pesoCoste);
-                        if(pesoCoste<=5){
-                            showToast("Entro en if de 5");
-                            pesoCoste=pesoCoste*1;
-                        }else if((pesoCoste>=6)||(pesoCoste<=10) ){
-                            showToast("Entro en if entre 6 y 10");
-                            pesoCoste=pesoCoste*2;
-                        }else if(pesoCoste>=10){
-                            showToast("Entro en if de 10");
-                            pesoCoste=pesoCoste*3;
-                        }
-
-                        precioDestino=precioDestino+precioUrgente+pesoCoste;
-
-                        pasoPantalla(zonaDestino,continenteDestino,precioDestino,pesoDestino,tarifaTipoDestino,boxCajaDestino,boxDedicatoriaDestino);
-
-                    }
-                });
+                showToast("Tipo de imagen elegido: "+imagenDestino);
 
             }
             @Override
@@ -140,11 +106,47 @@ public class EnviosPaquetes3 extends Activity {
 
         });
 
+        //boton calcular
+
+        calcular.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (rbUrgente.isChecked()==true) {
+                    precioUrgente=(precioDestino*30/100);
+                    tarifaTipoDestino="urgente";
+                }
+                if (rbNormal.isChecked()==true){
+                    tarifaTipoDestino="normal";
+                }
+                pesoDestino=eTpeso.getText().toString();
+                showToast("Peso destino: "+pesoDestino);
+
+                pesoCoste=Integer.parseInt(pesoDestino);
+                showToast("El peso coste antes de los if es de: "+pesoCoste);
+                if(pesoCoste<=5){
+                    showToast("Entro en if de 5");
+                    pesoCoste=pesoCoste*1;
+                }else if((pesoCoste>=6)||(pesoCoste<=10) ){
+                    showToast("Entro en if entre 6 y 10");
+                    pesoCoste=pesoCoste*2;
+                }else if(pesoCoste>=10){
+                    showToast("Entro en if de 10");
+                    pesoCoste=pesoCoste*3;
+                }
+
+                precioDestino=precioDestino+precioUrgente+pesoCoste;
+
+                pasoPantalla(zonaDestino,continenteDestino,precioDestino,pesoDestino,tarifaTipoDestino,boxCajaDestino,boxDedicatoriaDestino,imagenDestino);
+
+            }
+        });
+
+
+
     }
 
 
 
-    public void pasoPantalla(String zonaDestino,String continenteDestino,float precioDestino, String pesoDestino, String tarifaTipoDestino, String boxCajaDestino, String boxDedicatoriaDestino){
+    public void pasoPantalla(String zonaDestino,String continenteDestino,float precioDestino, String pesoDestino, String tarifaTipoDestino, String boxCajaDestino, String boxDedicatoriaDestino, String imagenDestino){
         if(isFirst){
             isFirst=false;
         }else {
@@ -158,6 +160,9 @@ public class EnviosPaquetes3 extends Activity {
             miBundle.putString("tarifaTipoDestino", tarifaTipoDestino);
             miBundle.putString("boxCajaDestino", boxCajaDestino);
             miBundle.putString("boxDedicatoriaDestino", boxDedicatoriaDestino);
+            miBundle.putString("imagenDestino",imagenDestino);
+
+            showToast("Tipo de imagen elegido paso pantalla: "+imagenDestino);
 
             miIntent.putExtras(miBundle);
 

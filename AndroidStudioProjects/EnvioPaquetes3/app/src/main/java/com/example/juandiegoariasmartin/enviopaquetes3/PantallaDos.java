@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,8 +15,9 @@ import android.widget.Toast;
  * Created by juandiegoariasmartin on 29/1/15.
  */
 public class PantallaDos extends Activity {
+    private ImageView miImagen;
     private Button botonGrabar;
-    private String zonaDestinoRecibidoGrabar,precioDestinoRecibidoGrabar;
+    private String zonaDestinoRecibidoGrabar,precioDestinoRecibidoGrabar,imagenDestinoRecibido;
     private TextView zonaDestinoRecibido,continenteDestinoRecibido,precioDestinoRecibido,pesoDestinoRecibido,tarifaTipoDestinoRecibido,boxCajaDestinoRecibido,boxDedicatoriaDestinoRecibido;
     private ResultadosSQLiteHelper cliBDh = new ResultadosSQLiteHelper(this, "DBResultados", null, 1);
 
@@ -32,6 +34,7 @@ public class PantallaDos extends Activity {
         tarifaTipoDestinoRecibido=(TextView)findViewById(R.id.tvtarifaTipoDestinoRecibido);
         boxCajaDestinoRecibido=(TextView)findViewById(R.id.tvBoxCajaDestinoRecibido);
         boxDedicatoriaDestinoRecibido=(TextView)findViewById(R.id.tvBoxDedicatoriaDestinoRecibido);
+        miImagen= (ImageView)findViewById(R.id.miImagen);
 
         Bundle miBundleRecoger = getIntent().getExtras();
         zonaDestinoRecibido.setText(miBundleRecoger.getString("zonaDestino"));
@@ -41,6 +44,10 @@ public class PantallaDos extends Activity {
         tarifaTipoDestinoRecibido.setText(miBundleRecoger.getString("tarifaTipoDestino"));
         boxCajaDestinoRecibido.setText(miBundleRecoger.getString("boxCajaDestino"));
         boxDedicatoriaDestinoRecibido.setText(miBundleRecoger.getString("boxDedicatoriaDestino"));
+        imagenDestinoRecibido = getIntent().getStringExtra("imagenDestino");
+
+        int conv_int_imgView_imagen = PantallaDos.this.getResources().getIdentifier(imagenDestinoRecibido, null, PantallaDos.this.getPackageName());
+        miImagen.setImageResource(conv_int_imgView_imagen);
 
         zonaDestinoRecibidoGrabar=miBundleRecoger.getString("zonaDestino");
         precioDestinoRecibidoGrabar=miBundleRecoger.getString("precioDestino");
